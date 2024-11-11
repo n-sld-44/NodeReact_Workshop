@@ -1,0 +1,99 @@
+
+<div class="container mt-4">
+    <h2>Lesson Search Page</h2>
+    <form>
+      <div class="row mb-3">
+        <div class="col-md-3">
+          <label for="title" class="form-label">Title</label>
+        </div>
+        <div class="col-md-9">
+          <input type="text" class="form-control rounded" id="title" name="title">
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-md-3">
+          <label for="description" class="form-label">Description</label>
+        </div>
+        <div class="col-md-9">
+          <input type="text" class="form-control rounded" id="description" name="description">
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-md-3">
+          <label for="category" class="form-label">Category</label>
+        </div>
+        <div class="col-md-9">
+          <input type="text" class="form-control rounded" id="category" name="category">
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-md-3">
+          <label for="level" class="form-label">Level</label>
+        </div>
+        <div class="col-md-9">
+          <input type="text" class="form-control rounded" id="level" name="level">
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-md-3">
+          <label for="tags" class="form-label">Tags</label>
+        </div>
+        <div class="col-md-9">
+          <input type="text" class="form-control rounded" id="tags" name="tags">
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-md-3">
+          <label for="author" class="form-label">Author</label>
+        </div>
+        <div class="col-md-9">
+          <input type="text" class="form-control rounded" id="author" name="author">
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-md-3">
+          <label for="lastModifiedDate" class="form-label">Last Modified Date</label>
+        </div>
+        <div class="col-md-9">
+          <input type="date" class="form-control rounded" id="lastModifiedDate" name="lastModifiedDate">
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-md-3">
+          <label for="dateRange" class="form-label">Date Range</label>
+        </div>
+        <div class="col-md-9">
+          <input type="date" class="form-control rounded" id="startDate" name="startDate" placeholder="Start Date">
+          <input type="date" class="form-control rounded mt-2" id="endDate" name="endDate" placeholder="End Date">
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-md-3">
+          <label for="numericRange" class="form-label">Numeric Range</label>
+        </div>
+        <div class="col-md-9">
+          <input type="number" class="form-control rounded" id="minValue" name="minValue" placeholder="Min Value">
+          <input type="number" class="form-control rounded mt-2" id="maxValue" name="maxValue" placeholder="Max Value">
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-md-3">
+          <label for="stringSearch" class="form-label">String Search</label>
+        </div>
+        <div class="col-md-9">
+          <select class="form-select rounded" id="stringSearch" name="stringSearch">
+            <option value="contains">Contains (ignore-case)</option>
+            <option value="like">Like</option>
+            <option value="caseInsensitiveLike">Case-insensitive Like</option>
+            <option value="startsWith">Starts With</option>
+            <option value="exact">Exact</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 text-end">
+          <button type="submit" class="btn btn-primary">Search</button>
+        </div>
+      </div>
+    </form>
+  </div>

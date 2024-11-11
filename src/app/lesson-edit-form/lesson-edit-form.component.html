@@ -1,0 +1,76 @@
+
+<div class="container">
+    <h2>Edit Lesson Package</h2>
+    <form [formGroup]="lessonForm">
+      <div class="row mb-3">
+        <div class="col-md-3">
+          <label for="title" [class]="lessonForm.get('title')?.invalid ? 'text-danger' : ' '">Title</label>
+        </div>
+        <div class="col-md-9">
+          <input type="text"  id="title" name="title" placeholder="Enter Title" formControlName="title">
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-md-3">
+          <label for="description" [class]="lessonForm.get('description')?.invalid ? 'text-danger' : ' '">Description</label>
+        </div>
+        <div class="col-md-9">
+          <textarea class="form-control" id="description"  formControlName="description"></textarea>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-md-3">
+          <label for="category" class="form-label">Category</label>
+        </div>
+        <div class="col-md-9">
+          <input type="text" class="form-control" id="category" name="category">
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-md-3">
+          <label for="level" class="form-label">Level</label>
+        </div>
+        <div class="col-md-9">
+          <input type="text" class="form-control" id="level" name="level">
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-md-3">
+          <label for="prerequisite" class="form-label">Prerequisite</label>
+        </div>
+        <div class="col-md-9">
+          <input type="text" class="form-control" id="prerequisite" name="prerequisite">
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-md-3">
+          <label for="tags" class="form-label">Tags</label>
+        </div>
+        <div class="col-md-9">
+          <input ngbTooltip="Enter Tags, separated by commas" placement="top" type="text" class="form-control" id="tags" name="tags">
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-md-3">
+          <label for="copyright" class="form-label">Copyright</label>
+        </div>
+        <div class="col-md-9">
+          <input type="text" class="form-control" id="copyright" name="copyright">
+        </div>
+      </div>
+      <div class="row mt-2">
+        <div class="col-md-2 text-end"></div>
+        <div class="col-md-2">
+          <button type="button" class="btn btn-primary" (click)="onSubmit()" [disabled]="!lessonForm.valid">Submit</button>
+          <span *ngIf="lessonForm.invalid" class="col-md-8 text-danger" >
+          Please fill in all the required fields
+          </span>
+        </div>
+      </div>
+    </form>
+  </div>
+
+
+<button class="btn btn-primary" [routerLink]="['/lesson',1234]">Detail for lesson 1234</button>
+<br>
+<a routerLink="/"><fa-icon [icon]="faHome" /> </a>
