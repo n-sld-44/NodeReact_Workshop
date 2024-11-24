@@ -6,7 +6,7 @@ const { swaggerDocs , swaggerUi } = require('./swagger.js');
 
 
 //Database
-const learningPackages = [
+const learningPackages: LearningPackage[] = [
   new LearningPackage(1, 'Introduction to TypeScript'),
   new LearningPackage(2, 'Introduction to Angular'),
   new LearningPackage(3, 'Introduction to React'),
@@ -23,6 +23,14 @@ const app = express();
 const port = 3000;
 app.use(express.json());
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
+
+
+app.get('/swagger.json', (req,res) => {
+  res.setHeader('Content-Type', 'application/json');
+  res.send(swaggerDocs)
+
+  }
+)
 
 /**
  * @openapi
@@ -50,7 +58,7 @@ app.listen(port, () => {
  *     responses:
  *       '200':
  *         description: A successful response
- * 
+ *
  */
 app.get('/api/package', (req : Request, res : Response) => {
   res.json(learningPackages);
@@ -77,7 +85,7 @@ app.get('/api/package', (req : Request, res : Response) => {
  */
 app.get('/api/package/:id', (req : Request, res : Response) => {
   const {id} = req.params;
-  
+
   const learningPackage = learningPackages.find((lp) => lp.id == parseInt(id));
   if (learningPackage) {
     res.send(learningPackage);
@@ -167,7 +175,7 @@ app.put('/api/package', (req : Request, res : Response) => {
  *     responses:
  *       '200':
  *         description: A successful response
- * 
+ *
  */
 app.get('/api/package-summaries', (req : Request, res : Response) => {
     try {
@@ -200,14 +208,14 @@ app.get('/api/package-summaries', (req : Request, res : Response) => {
  *     responses:
  *       '200':
  *         description: A successful response
- * 
+ *
  */
 app.get('/api/package-summaries/search', (req: Request, res: Response) => {
     try {
         const { id  ,title } = req.query;
         const filteredPackages = learningPackages.filter(pkg => {
-            return (id ? pkg.id.toString() === id as string : true) && 
-                (title ? pkg.name.includes(title as string) : true);   
+            return (id ? pkg.id.toString() === id as string : true) &&
+                (title ? pkg.name.includes(title as string) : true);
         });
         res.status(200).json(filteredPackages);
     } catch (error) {
@@ -241,9 +249,9 @@ app.delete('/api/package/:id', (req : Request, res : Response) => {
   if (index !== -1) {
     learningPackages.splice(index, 1);
     res.status(200).send('Learning package deleted');
-    
+
   } else {
     res.status(404).send('Learning package not found');
-    
+
   }
 });

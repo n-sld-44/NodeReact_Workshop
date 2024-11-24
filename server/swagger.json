@@ -1,0 +1,184 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "LearningPackage Rest API",
+    "version": "1.0.0",
+    "description": "A simple Express API with Swagger documentation"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000"
+    }
+  ],
+  "paths": {
+    "/api/liveness": {
+      "get": {
+        "description": "Liveness check",
+        "responses": {
+          "200": {
+            "description": "I am alive"
+          }
+        }
+      }
+    },
+    "/api/package": {
+      "get": {
+        "description": "Get all learning packages",
+        "responses": {
+          "200": {
+            "description": "A successful response"
+          }
+        }
+      },
+      "post": {
+        "description": "Create learning package",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "integer"
+                  },
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id",
+                  "name"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Learning package created"
+          }
+        }
+      },
+      "put": {
+        "description": "Update learning package",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "integer"
+                  },
+                  "name": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id",
+                  "name"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Learning package updated"
+          },
+          "404": {
+            "description": "Learning package not found"
+          }
+        }
+      }
+    },
+    "/api/package/{id}": {
+      "get": {
+        "description": "Get learning package by id",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            },
+            "description": "Learning package id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response"
+          },
+          "404": {
+            "description": "Learning package not found"
+          }
+        }
+      },
+      "delete": {
+        "description": "Delete learning package by id",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            },
+            "description": "Learning package id"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Learning package deleted"
+          },
+          "404": {
+            "description": "Learning package not found"
+          }
+        }
+      }
+    },
+    "/api/package-summaries": {
+      "get": {
+        "description": "Get all learning package summaries",
+        "responses": {
+          "200": {
+            "description": "A successful response"
+          }
+        }
+      }
+    },
+    "/api/package-summaries/search": {
+      "get": {
+        "description": "Get all learning package summaries",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "id",
+            "schema": {
+              "type": "integer"
+            },
+            "description": "Learning package id"
+          },
+          {
+            "in": "query",
+            "name": "title",
+            "schema": {
+              "type": "string"
+            },
+            "description": "Learning package title"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response"
+          }
+        }
+      }
+    }
+  },
+  "components": {},
+  "tags": []
+}

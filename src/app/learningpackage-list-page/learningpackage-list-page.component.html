@@ -1,0 +1,9 @@
+<p>learningpackage-list-page works!</p>
+
+<button (click)="onClickReload()" class="btn btn-outline-info">Load Learning packages</button>
+<ul>
+  <li *ngFor="let learningPackage of learningPackages">
+    {{learningPackage.name}}
+
+  </li>
+</ul>
